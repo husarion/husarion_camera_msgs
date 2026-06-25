@@ -1,0 +1,12 @@
+# Set or clear an operator-assigned friendly name for a camera.
+#
+# `id` matches a CameraDeviceList.devices[].id (the composite key — by-id
+# for unique-iSerial cameras, by-path for colliding ones). An empty
+# `alias` clears the entry. The mapping is persisted to
+# <calibration_dir>/aliases.yaml and the node republishes ~/devices with
+# the new alias immediately (no camera swap / capture restart).
+string id
+string alias
+---
+bool   success
+string message

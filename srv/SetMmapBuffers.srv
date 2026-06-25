@@ -1,0 +1,12 @@
+# Reconfigure the V4L2 mmap buffer count at runtime. The capture thread
+# closes the current stream, re-runs VIDIOC_REQBUFS with the new count,
+# re-opens with the previously-active mode, and rolls back to the prior
+# buffer count if the re-open fails.
+#
+# Floor 2 (one capturing, one being read by userspace); ceiling 32 — past
+# that some drivers refuse, and the latency cost (~1/fps per buffer) makes
+# it pointless.
+uint32 buffers
+---
+bool success
+string message
