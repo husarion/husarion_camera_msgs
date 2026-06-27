@@ -36,12 +36,13 @@ colcon build --packages-select husarion_camera_msgs
 ```
 
 Consumers that build from source pull this in as a named Docker build context
-(Compose `additional_contexts:` / `docker build --build-context`), e.g.:
+(Compose `additional_contexts:` / `docker build --build-context`) straight from
+this public git repo — no local copy, e.g.:
 
 ```yaml
 build:
   additional_contexts:
-    husarion_camera_msgs: ../../../snaps/husarion_camera_msgs
+    husarion_camera_msgs: "https://github.com/husarion/husarion_camera_msgs.git#main"
 ```
 
 ## License
