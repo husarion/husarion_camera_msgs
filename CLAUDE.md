@@ -4,8 +4,13 @@ ROS 2 **message + service definitions** for the Husarion camera node: video
 formats/devices, Opus audio, and runtime camera control. A pure interface
 package (ament/colcon, no code) — `msg/` (AudioInfo, AudioPacket,
 CameraCapabilities, CameraDevice, CameraDeviceList, CameraFormat, CameraMode,
-CameraResolution) + `srv/` (SetCameraAlias, SetCameraDevice, SetCameraFormat,
-SetFloat64, SetMmapBuffers).
+CameraResolution, Ptz{Capabilities,CapabilitiesList,State,Velocity,Preset,
+PresetList,PresetLists}) + `srv/` (SetCameraAlias, SetCameraDevice,
+SetCameraFormat, SetFloat64, SetMmapBuffers, Ptz{MoveTo,LookAt,Focus,
+PresetCommand,PresetThumbnail,Stop}). The PTZ types (SPEC-PTZ-CAMERA-2026-10 in
+husarion-cockpit) depend on `std_msgs` + `builtin_interfaces`, are REP-103, and
+never carry NaN: presence bits / `*_known` flags instead (the bridge maps a
+missing float to 0.0 and NaN to null). One field per line.
 
 ## Load-bearing invariants
 

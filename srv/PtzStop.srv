@@ -1,0 +1,7 @@
+# ~/ptz/stop
+# "" = every device whose controller is this client
+string device_id
+string client
+---
+bool success
+string message

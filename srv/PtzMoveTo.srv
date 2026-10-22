@@ -1,0 +1,29 @@
+# ~/ptz/move_to: absolute (or relative) move. Only the axes named in
+# `axes` change; the others keep their value (PTZ-D25: presence bits, no
+# NaN). Ends any velocity hold on the device.
+string device_id
+# required, e.g. "webui:<session>", "mission_executor"
+string client
+uint8 AXIS_PAN=1
+uint8 AXIS_TILT=2
+# hfov in rad; needs fov_known
+uint8 AXIS_FOV=4
+# zoom_position 0..1; always available with has_zoom (exclusive with AXIS_FOV)
+uint8 AXIS_ZOOM_POS=8
+uint8 axes
+float64 pan
+float64 tilt
+float64 hfov
+float64 zoom_position
+# add to the current pose instead
+bool relative
+# 0..1 of max; 0 = driver default
+float64 speed
+---
+bool success
+string message
+# after clamping
+float64 target_pan
+float64 target_tilt
+float64 target_hfov
+float64 target_zoom_position

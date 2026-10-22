@@ -1,0 +1,13 @@
+# ~/ptz/focus
+string device_id
+string client
+# "auto" | "manual" | "one_shot" | "" (no change)
+string mode
+# "near" | "far" | "stop" | ""; near/far is a bounded nudge (watchdog)
+string action
+bool has_position
+# 0..1, manual absolute focus
+float64 position
+---
+bool success
+string message

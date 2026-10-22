@@ -1,0 +1,19 @@
+# ~/ptz/look_at: centre the point (u, v) of the frame the user saw, and
+# optionally zoom to a box. Needs angles_calibrated, fov_known, pose_known.
+string device_id
+string client
+# raw-frame coordinates -1..1 (left/top = -1), after undoing any preview transform
+float64 u
+float64 v
+# 0 = centre only; <1 = zoom in to that fraction of the frame width; >1 = zoom out by that factor
+float64 box_w
+# 0 = derive from box_w and the frame aspect
+float64 box_h
+# pts of the DISPLAYED frame; zero = now
+builtin_interfaces/Time frame_stamp
+---
+bool success
+string message
+float64 target_pan
+float64 target_tilt
+float64 target_hfov

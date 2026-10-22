@@ -1,0 +1,7 @@
+# ~/ptz/preset_thumbnail
+string device_id
+uint16 index
+---
+bool success
+uint32 thumbnail_rev
+uint8[] jpeg

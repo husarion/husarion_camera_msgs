@@ -1,0 +1,16 @@
+# ~/ptz/preset
+string device_id
+string client
+# "recall" | "save" | "rename" | "delete"
+string action
+# 0 on save = first free slot
+uint16 index
+string name
+# recall speed 0..1; 0 = default
+float64 speed
+# on save: <= 16 KiB JPEG; empty = none
+uint8[] thumbnail_jpeg
+---
+bool success
+string message
+uint16 index
